@@ -5,7 +5,7 @@ trigger:
 jobs:
 - job: RunTest4
   displayName: 'Run Tests'
-  pool: Default
+  pool: Din_pool
   steps:      
   - task: VisualStudioTestPlatformInstaller@1
     displayName: 'Visual Studio Test Platform Installer'
@@ -16,7 +16,7 @@ jobs:
       testSelector: 'testAssemblies'     
       testAssemblyVer2: '**/*FlakyTestProject*.dll'
       rerunFailedTests: true
-      rerunType: basedOnTestFailureCount
+      rerunType: 'basedOnTestFailureCount'
       searchFolder: '$(System.DefaultWorkingDirectory)\bin\Debug\'
       basedOnTestFailureCount: 5
       rerunMaxAttempts: 3
