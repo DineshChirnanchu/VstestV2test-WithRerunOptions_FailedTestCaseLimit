@@ -14,7 +14,11 @@ jobs:
   - task: VSTest@2
     inputs:  
       testSelector: 'testAssemblies'     
-      testAssemblyVer2: '**/*StackOverflow*.dll'
+      testAssemblyVer2: '**/*FlakyTestProject*.dll'
+      rerunFailedTests: true
+      rerunType: basedOnTestFailureCount
       searchFolder: '$(System.DefaultWorkingDirectory)\bin\Debug\'
+      basedOnTestFailureCount: 5
+      rerunMaxAttempts: 3
       vsTestVersion: 'toolsInstaller'
-      diagnosticsEnabled: true
+
